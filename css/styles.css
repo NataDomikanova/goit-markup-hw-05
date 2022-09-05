@@ -312,16 +312,18 @@ body{
 .work-title{
     position: absolute;
     bottom: 0;
-    left: 0;
     width: 100%;
     height: 70px;
     background-color: rgba(47, 48, 58, 0.8);
     color: var(--mane-color);
-    padding: 27px;
+
     font-weight: 700;
     line-height: 1.14;
-    text-align: center;
     text-transform: uppercase;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
 
@@ -414,25 +416,19 @@ body{
     border-radius: 4px;
     color: var(--icon-color);
 
-    transition: border var(--transition-dur-and-funk);
+    transition: border var(--transition-dur-and-funk), color var(--transition-dur-and-funk);
 }
 
 .client-list-link:hover,
 .client-list-link:focus{
     border: 1px solid var(--chenj-color); 
+    color: var(--chenj-color);
     
 }
 
 .client-list-icon{
     fill: currentColor;
-
-    transition: fill var(--transition-dur-and-funk);
-}
-
-.client-list-link:hover .client-list-icon,
-.client-list-link:focus .client-list-icon {
-    fill: var(--chenj-color);
-}
+} 
 
 /* ============= Контакти ============= */
 
@@ -619,7 +615,8 @@ address {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
-.card-link:hover .overlay{
+.card-link:hover .overlay,
+.card-link:focus .overlay{
     transform: translateY(0%);
 }
 
@@ -632,13 +629,15 @@ address {
         z-index: 200;
         width: 100%;
         height: 100%;
+        opacity: 1;
+        visibility: visible;
         background-color: rgba(0, 0, 0, 0.2);
 
         transition: opacity var(--transition-dur-and-funk), visibility var(--transition-dur-and-funk);
     }
 
     .backdrop.is-hidden{
-        overflow: 0;
+        opacity: 0;
         visibility: hidden;
         pointer-events: none;
     } 
